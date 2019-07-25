@@ -1,0 +1,55 @@
+<% include ../partials/header %>
+
+
+
+
+
+    <div class="container">
+
+        <header class="jumbotron">
+            <div>
+
+                <h1>
+                    Welcome to Movie-Watchlist!
+                </h1>
+                <p>
+                    A community based site for tracking and commenting on movies you've been meaning to watch.
+                </p>
+				<p>
+					Please sign in to add a movie!
+				</p>
+                <p>
+                    <a class="btn btn-primary btn-lg" href="/movies/new">Add New Movie</a>
+					 <a class="btn btn-primary btn-lg" href="/discover">Discover Trending New Movies</a>
+                </p>
+            </div>
+        </header>
+
+        <div class="row text-center" style="display:flex; flex-wrap: wrap;">
+            <div class="col-lg-12">
+                <h3>
+                    Current movie list
+                </h3>
+            </div>
+        </div>
+
+        <% movies.forEach(function(movies){  %>
+            <div class="col-md-3 com-sm-6">
+                <div class="thumbnail">
+                    <img src="<%=movies.image  %>">
+                    <div class="caption">
+                        <h4>
+                            <%= movies.name %>
+                        </h4>
+                    </div>
+					<p>
+						<a href="/movies/<%= movies._id %>" class="btn btn-primary" >More Info</a>
+					</p>
+                </div>
+
+            </div>
+
+            <% }); %>
+
+    </div>
+    <% include ../partials/footer %>
